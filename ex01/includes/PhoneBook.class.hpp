@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 18:38:24 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/17 18:38:25 by chaidel          ###   ########.fr       */
+/*   Created: 2022/10/17 18:38:01 by chaidel           #+#    #+#             */
+/*   Updated: 2022/10/17 19:26:18 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef PHONEBOOK_CLASS_HPP
+# define PHONEBOOK_CLASS_HPP
 
-int main(int ac, char **av)
-{
-	int	i = 0;
-	int	j;
+# include "all.hpp"
 
-	if (ac == 1)
-	{
-		(void)av;
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	}
-	else
-	{
-		while (av[++i])
-		{
-			j = 0;
-			while(av[i][j])
-				std::cout << (char)std::toupper(av[i][j++]);
-		}
-		std::cout << std::endl;
-	}
-	return (0);
-}
+class PhoneBook {
+	public:
+	PhoneBook(void);
+	~PhoneBook(void);
+
+	void	add(void);
+	void	search(void) const;
+	int		is_used(int index) const;
+	
+	/*	Accessors et Getters */
+	void		setrep(Contact* &rep, int index);
+	std::string	getrep(int index) const;
+	int			getindex() const;
+	
+	private:
+	Contact _rep[8];
+	int		_index;
+};
+
+
+#endif

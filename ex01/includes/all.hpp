@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   all.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 18:38:24 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/17 18:38:25 by chaidel          ###   ########.fr       */
+/*   Created: 2022/10/17 18:38:18 by chaidel           #+#    #+#             */
+/*   Updated: 2022/10/17 18:38:19 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef ALL_HPP
+# define ALL_HPP
 
-int main(int ac, char **av)
-{
-	int	i = 0;
-	int	j;
+# include <iostream>
+# include "PhoneBook.class.hpp"
+# include "Contact.class.hpp"
 
-	if (ac == 1)
-	{
-		(void)av;
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	}
-	else
-	{
-		while (av[++i])
-		{
-			j = 0;
-			while(av[i][j])
-				std::cout << (char)std::toupper(av[i][j++]);
-		}
-		std::cout << std::endl;
-	}
-	return (0);
-}
+#endif
