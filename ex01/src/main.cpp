@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:38:09 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/17 19:10:50 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/10/18 16:10:48 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@ int	main(void)
 {
 	std::string	buff;
 	PhoneBook	phone;
-	while (buff.compare("EXIT"))
+
+	std::cout << "*	Welcome *" << std::endl;
+	while (true)
 	{
+		std::cout << "rep: " << phone.getIndex() << std::endl;
 		std::cin >> buff;
 		if (std::cin.eof())
 			return (0);
@@ -30,11 +33,11 @@ int	main(void)
 		{
 			std::cout << "* who *" << std::endl;
 		}
+		else if (!buff.compare("EXIT"))
+			return (0);
 		else
-		{
 			std::cout << "* Unknown command *" << std::endl;
-		}
 	}
-	// std::cout << "*  *" << std::endl;
+	std::cout << "* Have a good day *" << std::endl;
 	return (0);
 }

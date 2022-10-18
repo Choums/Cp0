@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:38:16 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/17 19:08:04 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/10/18 15:44:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@ class Contact {
 	Contact(void);
 	~Contact(void);
 
-	std::string	getcon() const;
-	void		setcon();
+	std::string	getFname() const;
+	std::string	getLname() const;
+	std::string	getNname() const;
+	std::string	getNum() const;
+	std::string	getSecret() const;
+	bool		getTaken() const;
+	void		setCon();
 	
 	private:
 	// void	_clear(std::string str);
@@ -31,6 +36,7 @@ class Contact {
 	std::string	_nickname;
 	std::string _number;
 	std::string	_secret;
+	bool		_taken;
 };
 
 #endif

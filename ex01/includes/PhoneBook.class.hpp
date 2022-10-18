@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:38:01 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/17 19:26:18 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/10/18 16:28:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ class PhoneBook {
 
 	void	add(void);
 	void	search(void) const;
-	int		is_used(int index) const;
+	bool	is_used(int index) const;
 	
-	/*	Accessors et Getters */
-	void		setrep(Contact* &rep, int index);
-	std::string	getrep(int index) const;
-	int			getindex() const;
+	/*	Accessors */
+	void		setRep(Contact *rep, int index);
+	std::string	getRep(int index) const;
+	int			getIndex() const;
 	
 	private:
-	Contact _rep[8];
-	int		_index;
+	Contact 	_rep[8];
+	int			_index;
 };
 
 
