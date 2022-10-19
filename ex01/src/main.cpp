@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:38:09 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/18 16:10:48 by root             ###   ########.fr       */
+/*   Updated: 2022/10/19 19:51:22 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,25 @@ int	main(void)
 	std::string	buff;
 	PhoneBook	phone;
 
-	std::cout << "*	Welcome *" << std::endl;
+	std::cout << "\t   *	Welcome *" << std::endl;
 	while (true)
 	{
-		std::cout << "rep: " << phone.getIndex() << std::endl;
-		std::cin >> buff;
-		if (std::cin.eof())
-			return (0);
+		std::cout << "\t   * ADD/SEARCH/EXIT *" << std::endl;
+		std::getline (std::cin, buff);
 		if (!buff.compare("ADD"))
 		{
-			std::cout << "* Adding new contact *" << std::endl;
+			std::cout << "\t   * Adding new contact *" << std::endl;
 			phone.add();
 		}
 		else if (!buff.compare("SEARCH"))
 		{
-			std::cout << "* who *" << std::endl;
+			phone.search();
 		}
 		else if (!buff.compare("EXIT"))
-			return (0);
+			break ;
 		else
-			std::cout << "* Unknown command *" << std::endl;
+			std::cout << "\t   * Unknown command *" << std::endl;
 	}
-	std::cout << "* Have a good day *" << std::endl;
+	std::cout << "\t   * Have a good day *" << std::endl;
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:38:03 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/18 16:23:46 by root             ###   ########.fr       */
+/*   Updated: 2022/10/19 20:05:43 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,29 +59,14 @@ void	Contact::setCon()
 	std::string	input;
 
 	std::cout << "first name: ";
-	std::cin >> this->_first_name;
-	if (std::cin.eof())
-		return ;
+	std::getline (std::cin, this->_first_name);
 	std::cout << "last name: ";
-	std::cin >> this->_last_name;
-	if (std::cin.eof())
-		return ;
+	std::getline (std::cin, this->_last_name);
 	std::cout << "nickname: ";
-	std::cin >> this->_nickname;
-	if (std::cin.eof())
-		return ;
+	std::getline (std::cin, this->_nickname);
 	std::cout << "number: ";
-	std::cin >> this->_number;
-	if (std::cin.eof())
-		return ;
+	std::getline (std::cin, this->_number);
 	std::cout << "darkest secret: ";
-	std::cin >> this->_secret;
-	if (std::cin.eof())
-		return ;
+	std::getline (std::cin, this->_secret);
 	this->_taken = true;
 }
-
-// void	Contact::_clear(std::string str)
-// {
-	
-// }

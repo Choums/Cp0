@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.class.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:38:12 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/18 17:08:40 by root             ###   ########.fr       */
+/*   Updated: 2022/10/19 20:02:29 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/all.hpp"
 
-PhoneBook::PhoneBook(void) : _index(0)
+PhoneBook::PhoneBook(void) : _index(0), _isc(0)
 {
 	// std::cout << "Phone constructor called" << std::endl;
 }
@@ -40,28 +40,35 @@ bool PhoneBook::is_used(int	index) const
 */
 void	PhoneBook::add()
 {
-	setRep(&_rep[this->_index], this->_index);
-	std::cout << this->_index << std::endl;
-	this->_index++;
-}
-
-/*
- *	Affiche l'entièreté du répertoire
- *	std::cout << << std::endl;
-*/
-std::string	PhoneBook::getRep(int index) const
-{
-	std::cout << "firstname: " << this->_rep[index].getFname() << std::endl;
-	std::cout << "lastname: " << this->_rep[index].getLname() << std::endl;
-	std::cout << "nickname: " << this->_rep[index].getNname() << std::endl;
-	std::cout << "number: " << this->_rep[index].getNum() << std::endl;
-	std::cout << "secret: " << this->_rep[index].getSecret() << std::endl;
+	if (this->_index < 8)
+	{
+		this->setRep(_rep, this->_index);
+		this->_index+=1;
+	}
+	else
+	{
+		this->setRep(_rep, this->_isc);
+		this->_isc+=1;
+	}	
 }
 
 /*	Appel le setter de Contact */
 void	PhoneBook::setRep(Contact *rep, int index)
 {
 	rep[index].setCon();
+}
+
+/*
+ *	Affiche l'entièreté du répertoire
+ *	std::cout << << std::endl;
+*/
+void	PhoneBook::getRep(int index) const
+{
+	std::cout << "firstname: " << this->_rep[index].getFname() << std::endl;
+	std::cout << "lastname: " << this->_rep[index].getLname() << std::endl;
+	std::cout << "nickname: " << this->_rep[index].getNname() << std::endl;
+	std::cout << "number: " << this->_rep[index].getNum() << std::endl;
+	std::cout << "secret: " << this->_rep[index].getSecret() << std::endl;
 }
 
 /*
@@ -76,14 +83,48 @@ void	PhoneBook::setRep(Contact *rep, int index)
 */
 void	PhoneBook::search(void) const
 {
-	std::cout << "		*** PHONE REPERTORY ***" << std::endl;
+	std::string	input;
+	std::cout << "\t   *** PHONE REPERTORY ***" << std::endl;
 	std::cout << "|     Index| Firstname|  Lastname|  Nickname|" << std::endl;
-	for (int y(0); (y < 8 || y < getIndex()); y++)
+	for (int y(0); y < 8; y++)
 	{
-		for (int x(0); x < 45; x++)
-		{
-			if (x == 0 || x == 45 - 1 || x == 12-1 || x == 23-1 || x == 34-1 )
-				std::cout << "|" << std::endl;
-		}
+		std::cout << "|";
+		for (int i(0); i < 9; i++)
+			std::cout << " ";
+		std::cout << y;
+		std::cout << "|";
+		print_str(this->_rep[y].getFname());
+		std::cout << "|";
+		print_str(this->_rep[y].getLname());
+		std::cout << "|";
+		print_str(this->_rep[y].getNname());
+		std::cout << "|" << std::endl; 
+	}
+	std::cout << "Contact: " ;
+	std::getline (std::cin, input);
+	if (input.length() != 1)
+	{
+		std::cout << "\t   * not a number *" << std::endl;
+		return ;
+	}
+	this->getRep(atoi(input.c_str()));
+}
+
+void	PhoneBook::print_str(std::string str) const
+{
+	int	len(0);
+
+	len = str.size();
+	if (len > 9)
+	{
+		for (int i(0); i < 9; i++)
+			std::cout << str[i];
+		std::cout << ".";
+	}
+	else
+	{
+		for (int i(0);i < 10 - len; i++)
+			std::cout << " ";
+		std::cout << str;
 	}
 }

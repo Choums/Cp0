@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   all.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:38:18 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/18 16:00:27 by root             ###   ########.fr       */
+/*   Updated: 2022/10/19 19:38:26 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ALL_HPP
 
 # include <iostream>
+# include <cstdlib>
 
 class Contact;
 class PhoneBook;
