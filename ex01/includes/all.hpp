@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:38:18 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/19 19:38:26 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/10/21 15:26:48 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <cstdlib>
+# include <locale>
 
 class Contact;
 class PhoneBook;

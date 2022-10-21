@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:38:16 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/19 20:05:56 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/10/21 15:19:38 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ class Contact {
 	std::string	getNum() const;
 	std::string	getSecret() const;
 	bool		getTaken() const;
-	void		setCon();
-	// void	_clear(std::string str);
+	bool		setCon();
 	
 	private:
 	std::string	_first_name;

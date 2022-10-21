@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:38:03 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/19 20:05:43 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/10/21 15:13:27 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,30 @@ bool	Contact::getTaken() const
 		return (false);
 }
 
-void	Contact::setCon()
+bool	Contact::setCon()
 {
 	std::string	input;
 
 	std::cout << "first name: ";
 	std::getline (std::cin, this->_first_name);
+	if (std::cin.eof())
+		return (false);
 	std::cout << "last name: ";
 	std::getline (std::cin, this->_last_name);
+	if (std::cin.eof())
+		return (false);
 	std::cout << "nickname: ";
 	std::getline (std::cin, this->_nickname);
+	if (std::cin.eof())
+		return (false);
 	std::cout << "number: ";
 	std::getline (std::cin, this->_number);
+	if (std::cin.eof())
+		return (false);
 	std::cout << "darkest secret: ";
 	std::getline (std::cin, this->_secret);
+	if (std::cin.eof())
+		return (false);
 	this->_taken = true;
+	return (true);
 }

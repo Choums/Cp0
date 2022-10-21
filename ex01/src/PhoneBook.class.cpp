@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:38:12 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/19 20:02:29 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/10/21 15:29:25 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	PhoneBook::add()
 void	PhoneBook::setRep(Contact *rep, int index)
 {
 	rep[index].setCon();
+
 }
 
 /*
@@ -84,6 +85,7 @@ void	PhoneBook::getRep(int index) const
 void	PhoneBook::search(void) const
 {
 	std::string	input;
+	int			index;
 	std::cout << "\t   *** PHONE REPERTORY ***" << std::endl;
 	std::cout << "|     Index| Firstname|  Lastname|  Nickname|" << std::endl;
 	for (int y(0); y < 8; y++)
@@ -102,12 +104,13 @@ void	PhoneBook::search(void) const
 	}
 	std::cout << "Contact: " ;
 	std::getline (std::cin, input);
-	if (input.length() != 1)
+	if (input.empty() || input.length() != 1 || isalpha(input[0]))
 	{
-		std::cout << "\t   * not a number *" << std::endl;
+		std::cout << "\t   * not a digit *" << std::endl;
 		return ;
 	}
-	this->getRep(atoi(input.c_str()));
+	index = atoi(input.c_str());
+	this->getRep(index);
 }
 
 void	PhoneBook::print_str(std::string str) const
