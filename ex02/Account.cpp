@@ -6,12 +6,26 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 15:37:51 by chaidel           #+#    #+#             */
-/*   Updated: 2022/10/21 18:29:37 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/10/21 19:27:12 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <ctime>
+#include <iomanip>
 #include "Account.hpp"
+
+void	displayTime(void)
+{
+	time_t cur = time(0);
+	tm *ltm = localtime(&cur);
+	std::cout << std::setfill('0') << "[" << 1900 + ltm->tm_year
+								<< std::setw(2) << 1 + ltm->tm_mon
+								<< std::setw(2) << ltm->tm_mday << "_"
+								<< std::setw(2) << ltm->tm_hour
+								<< std::setw(2) << ltm->tm_min
+								<< std::setw(2) << ltm->tm_sec << "] ";
+}
 
 int	Account::_nbAccounts(0);
 int	Account::_totalAmount(0);
@@ -20,6 +34,7 @@ int	Account::_totalNbWithdrawals(0);
 
 Account::Account(int initial_deposit) : _amount(initial_deposit)
 {
+	displayTime();
 	Account::_nbAccounts++;
 	Account::_totalAmount += this->_amount;
 	this->_accountIndex = Account::_nbAccounts - 1;
@@ -30,6 +45,7 @@ Account::Account(int initial_deposit) : _amount(initial_deposit)
 
 Account::~Account()
 {
+	displayTime();
 	std::cout << "index:" << this->_accountIndex;
 	std::cout << ";amount:" << this->_amount;
 	std::cout << ";closed" << std::endl;
@@ -59,6 +75,7 @@ int	Account::getNbWithdrawals()
 
 void	Account::displayAccountsInfos()
 {
+	displayTime();
 	std::cout << "accounts:" << getNbAccounts();
 	std::cout << ";total:" << getTotalAmount();
 	std::cout << ";deposits:" << getNbDeposits();
@@ -70,6 +87,7 @@ void	Account::displayAccountsInfos()
 
 void	Account::makeDeposit(int deposit)
 {
+	displayTime();
 	std::cout << "index:" << this->_accountIndex;
 	std::cout << ";p_amount:" << this->_amount;
 	std::cout << ";deposit:" << deposit;
@@ -83,6 +101,7 @@ void	Account::makeDeposit(int deposit)
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
+	displayTime();
 	std::cout << "index:" << this->_accountIndex;
 	std::cout << ";p_amount:" << this->_amount;
 	if (withdrawal > this->_amount)
@@ -110,6 +129,7 @@ int		Account::checkAmount() const
 */
 void	Account::displayStatus() const
 {
+	displayTime();
 	std::cout << "index:" << this->_accountIndex;
 	std::cout << ";amount:" << this->_amount;
 	std::cout << ";deposits:" << this->_nbDeposits;
